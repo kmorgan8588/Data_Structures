@@ -6,7 +6,7 @@ beforeEach(() => stack = new Stack());
 
 
 test('new stack should have size 0', () => {
-    const { size } = stack;
+    const size = stack.length();
     expect(size).toBe(0);
 });
 
@@ -17,19 +17,19 @@ test('should return null when popping of an empty stack', () => {
 
 test('size should not go below 0 when popping off an empty stack', () => {
     stack.pop();
-    const { size } = stack;
+    const size = stack.length();
     expect(size).toBeGreaterThan(-1);
 });
 
 test('size should increase when pushing on the stack', () => {
     stack.push(1);
-    const { size } = stack;
+    const size = stack.length();
     expect(size).toBe(1);
 });
 
 test('should not push when val isn\'t specified', () => {
     stack.push();
-    const {size} = stack;
+    const size = stack.length();
     expect(size).toBe(0);
 })
 
@@ -37,7 +37,7 @@ test('should pop off a value that was just pushed', () => {
     stack.push(15);
     const result = stack.pop();
     expect(result).toBe(15);
-    expect(stack.size).toBe(0);
+    expect(stack.length()).toBe(0);
 });
 
 test('should pop all values in reverse order', () => {
@@ -45,7 +45,7 @@ test('should pop all values in reverse order', () => {
         stack.push(i);
     }
     const result = [];
-    while(stack.size) {
+    while(stack.length()) {
         result.push(stack.pop());
     }
     expect(result).toEqual(expect.arrayContaining([4,3,2,1,0]));
