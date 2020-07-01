@@ -2,7 +2,7 @@ const Node = require('../Node/NodeQ');
 
 /**
  * Constructed for the purpose of interfacing as data storage for the Queue data structure
- * Emphasis being place on quick insertion and removal from the tail
+ * Emphasis being place on quick insertion and removal from the head
  * Constructor()
  * val {int}: - provided at instatiation, if no value is included, head and tail are set to null
  * this.head {node}: - see Node/NodeQ.js for more information, contains the node at the front of the list or null
@@ -30,18 +30,20 @@ module.exports = class LinkedList {
         const node = new Node(val);
         if (this.tail) {
             node.prev = this.tail;
+            this.tail.next = node;
         } else {
             this.head = node;
         }
         this.tail = node;
     }
 
-    removeFromTail() {
+    removeFromHead() {
         let result = null;
         try {
-            result = this.tail;
-            this.tail = result.prev;
-            if (!this.tail) throw new Error('tail was null');
+            result = this.head;
+            this.head = result.next;
+            if (!this.head) throw new Error('head was null');
+            this.head.prev = null;
         }
         catch(err) {
             this.head = null;

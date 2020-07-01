@@ -4,7 +4,14 @@ let list;
 
 beforeEach(() => list = new List());
 afterAll(() => list = null);
-test('a newly instantiated list exists', () => {
+
+
+test('a new list should have head and tail properties', () => {
+    expect(list).toHaveProperty('head');
+    expect(list).toHaveProperty('tail');
+});
+
+test('a new list should have null head, tail', () => {
     const { head, tail } = list;
     expect(head).toBe(null);
     expect(tail).toBe(null);
