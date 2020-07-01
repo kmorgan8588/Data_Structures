@@ -35,4 +35,20 @@ module.exports = class LinkedList {
         }
         this.head = node;
     }
+
+    removeFromHead() {
+        let result = null;
+        try {
+            result = this.head;
+            this.head = result.next;
+            if (!this.head) throw new Error('head was null');
+        }
+        catch(err) {
+            this.head = null;
+            this.tail = null;
+        }
+        finally {
+            return result;
+        }
+    }
 };

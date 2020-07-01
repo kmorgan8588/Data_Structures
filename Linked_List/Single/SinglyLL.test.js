@@ -31,4 +31,42 @@ test('should insert a new value at head position', () => {
     list.addToHead(15);
     const { head } = list;
     expect(head.val).toBe(15);
+});
+
+test('should insert multiple values and have correct head', () => {
+    list = new List(3);
+    list.addToHead(4);
+    list.addToHead(2);
+    list.addToHead(1);
+    const {head} = list;
+    expect(head.val).toBe(1);
+});
+
+test('should return null when removing from an empty list', () => {
+    const result = list.removeFromHead();
+    expect(result).toBe(null);
+})
+
+test('should remove the head from a list of size one', () => {
+    list.addToHead(12);
+    const result = list.removeFromHead();
+    expect(result.val).toBe(12);
+})
+
+test('should set the tail to null when the list is emptied', () => {
+    list.addToHead(12);
+    list.removeFromHead();
+    const { tail } = list;
+    expect(tail).toBe(null);
+});
+
+test('should set the correct head and not change tail when removing from a list', () => {
+    list.addToHead(13);
+    list.addToHead(14);
+    list.addToHead(12);
+    const result = list.removeFromHead();
+    expect(result.val).toBe(12);
+    const { head, tail } = list;
+    expect(head.val).toBe(14);
+    expect(tail.val).toBe(13); 
 })
