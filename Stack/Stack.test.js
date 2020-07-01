@@ -48,7 +48,7 @@ test('should pop all values in reverse order', () => {
     while(stack.length()) {
         result.push(stack.pop());
     }
-    expect(result).toEqual(expect.arrayContaining([4,3,2,1,0]));
+    expect(result).toEqual([4,3,2,1,0]);
 });
 
 test('peek should return null in an empty stack', () => {

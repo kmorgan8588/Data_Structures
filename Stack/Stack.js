@@ -12,6 +12,7 @@ const LinkedList = require('../Linked_List/Single/LL');
  *  peek() {<any>} : reveals and returns the top value of the stack, if any, returns null if nothing on the stack
  *  length() {<int>}: returns the current _size of the stack
  */
+
 module.exports = class Stack {
     constructor() {
         this._size = 0;

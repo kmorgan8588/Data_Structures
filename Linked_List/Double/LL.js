@@ -54,6 +54,10 @@ module.exports = class LinkedList {
         }
     }
 
+    front() {
+        return this.head;
+    }
+
     reset() {
         this.head = null;
         this.tail = null;

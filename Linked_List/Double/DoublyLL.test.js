@@ -95,3 +95,10 @@ test('head and tail should be null after removing all list items', () => {
     expect(head).toBe(null);
     expect(tail).toBe(null);
 })
+
+test('the front method returns the first item in the list', () => {
+    list.addToTail(19);
+    list.addToTail(12);
+    const front = list.front();
+    expect(front.val).toBe(19);
+})
