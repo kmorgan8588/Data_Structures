@@ -11,7 +11,7 @@ const Node = require('../Node/Node');
  * Methods
  * addToHead(val) {function}: - replaces the head node and attaches the previous head to the next attribute, if no head exists, the tail is also set to the new Node
  * removeFromHead() {function}: - removes the head node from the list and moves it to the next node in the list, if there is no next node, the tail is also set to null
- * 
+ * reset() {function}: - clean slate, clears and resets head, tail to null
  */
 
 module.exports = class LinkedList {
@@ -50,5 +50,10 @@ module.exports = class LinkedList {
         finally {
             return result;
         }
+    }
+
+    reset() {
+        this.head = null;
+        this.tail = null;
     }
 };

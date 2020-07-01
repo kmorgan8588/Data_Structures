@@ -69,4 +69,14 @@ test('should set the correct head and not change tail when removing from a list'
     const { head, tail } = list;
     expect(head.val).toBe(14);
     expect(tail.val).toBe(13); 
+});
+
+test('should be empty after reset', () => {
+    list.addToHead(12);
+    list.addToHead(42);
+    list.addToHead(16);
+    list.reset();
+    const {head, tail} = list;
+    expect(head).toBe(null);
+    expect(tail).toBe(null);
 })
