@@ -1,4 +1,4 @@
-const List = require('./Single/LL');
+const List = require('./LL');
 
 let list;
 
