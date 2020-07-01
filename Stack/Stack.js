@@ -26,6 +26,13 @@ module.exports = class Stack {
     }
 
     peek() {
-        
+        try {
+            const { stack } = this;
+            const top = stack.head.val;
+            return top;
+        } catch (err) {
+            console.log('its empty fool')
+            return null;
+        }
     }
 }
