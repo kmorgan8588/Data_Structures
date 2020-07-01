@@ -27,12 +27,10 @@ test('size should increase when pushing on the stack', () => {
     expect(size).toBe(1);
 });
 
-test('should return null when val isn\'t specified', () => {
+test('should not push when val isn\'t specified', () => {
     stack.push();
     const {size} = stack;
-    expect(size).toBe(1);
-    const top = stack.pop();
-    expect(top).toBe(null);
+    expect(size).toBe(0);
 })
 
 test('should pop off a value that was just pushed', () => {

@@ -20,6 +20,8 @@ module.exports = class Stack {
     }
 
     push(val) {
+        if (val === undefined) return;
+        
         const { stack } = this;
         stack.addToHead(val);
         this.size++;
