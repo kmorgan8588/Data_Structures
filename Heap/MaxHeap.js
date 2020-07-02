@@ -55,10 +55,37 @@ const Heap = require('./Heap');
      }
 
      heapifyUp() {
+        //compare to parent, swap if smaller
+        if (!this._size) return;
+        let child = this._size - 1;
+        let parent = Math.floor((child - 1) / 2);
 
+        while (this._heap[child] > this._heap[parent] && parent >= 0) {
+            [this._heap[child], this._heap[parent]] = [this._heap[parent], this._heap[child]];
+            child = parent;
+            parent = Math.floor((child - 1) / 2);
+        }
      }
 
      heapifyDown() {
+        if (!this._size) return;
 
+        let parent = 0;
+        let left = 2 * parent + 1, right = 2 * parent + 2;
+
+        while (this._heap[left] !== undefined && (this._heap[parent] < this._heap[left] || this._heap[parent] < this._heap[right])) {
+            if (this._heap[left] && this._heap[right] && this._heap[right] <= this._heap[left]) {
+                [this._heap[left], this._heap[parent]] = [this._heap[parent], this._heap[left]];
+                parent = left;
+            } else if (this._heap[left] && this._heap[right] && this._heap[right] > this._heap[left]) {
+                [this._heap[right], this._heap[parent]] = [this._heap[parent], this._heap[right]];
+                parent = right;
+            } else {
+                [this._heap[left], this._heap[parent]] = [this._heap[parent], this._heap[left]];
+                parent = left;
+            }
+
+            left = 2 * parent + 1, right = 2 * parent + 2;
+        }
      }
  }
