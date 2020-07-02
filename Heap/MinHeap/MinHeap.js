@@ -1,4 +1,4 @@
-const Heap = require('./Heap');
+const Heap = require('../Base/Heap');
 
 /**
  * Min Heap classes
