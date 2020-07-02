@@ -22,7 +22,19 @@
  *  - add(val) {void} val{int} : places a new value in to the heap and calls heapifyUp, no return value
  *  - remove() {int} : returns the top value from the heap, and ensures the heap maintains its structure by calling heapifyDown
  *  - top() {int} : returns the value of top element of the heap
+ *  - length() {int} : return the current size of the heap
  * private: 
- * - heapifyUp() {void} : run with add, to place the new value into the correct position in the heap
- * - heapifyDown() {void} : after removing the top value, we replace it with the last element added to the heap, and push it down to ensure the correct top value is found 
+ * - heapifyUp(config) {void} config{object} : run with add, to place the new value into the correct position in the heap, config describes how to compare values for placement
+ * - heapifyDown(config) {void} config{object} : after removing the top value, we replace it with the last element added to the heap, and push it down to ensure the correct top value is found, config describes how to compare values for placement 
  */
+
+ module.exports = class Heap {
+     constructor() {
+        this._size = 0;
+        this._heap = [];
+     }
+
+     length() {
+         return this._size;
+     }
+ }
